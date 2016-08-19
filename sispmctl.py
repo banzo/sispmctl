@@ -33,7 +33,7 @@ class SisPM:
 			result = subprocess.check_output(command)
 		except subprocess.CalledProcessError:
 			raise SisPMError("Querying outlets failed.")
-		for i, line in enumerate(result.split('\n')[:-1]):
+		for i, line in enumerate(result.split(b'\n')[:-1]):
 				status[i+1] = bool(int(line))
 		if not outlet: # "all" case
 			return status
